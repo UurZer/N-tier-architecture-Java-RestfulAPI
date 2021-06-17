@@ -11,6 +11,7 @@ import kodlamaio.northwind.business.abstracts.UserService;
 import kodlamaio.northwind.core.entities.User;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
+import kodlamaio.northwind.core.utilities.results.SuccessDataResult;
 import kodlamaio.northwind.core.utilities.results.SuccessResult;
 import kodlamaio.northwind.core.dataAccess.userDao;
 
@@ -32,15 +33,13 @@ public class UserManager implements UserService {
 	}
 
 	@Override
-	public DataResult<List<User>> findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataResult<User> findByEmail(String email) {
+		return new SuccessDataResult<User>("Kullanıcı bulundu",this.userDao.findByEmail(email));
 	}
 
 	@Override
 	public DataResult<List<User>> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<User>>("Kullanıcılar listelendi",this.userDao.findAll());
 	}
 
 }

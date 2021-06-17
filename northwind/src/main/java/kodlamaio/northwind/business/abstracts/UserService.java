@@ -12,7 +12,7 @@ public interface UserService {
 
 	Result add(User user);
 	
-	DataResult<List<User>> findByEmail(String email);
+	DataResult<User> findByEmail(String email);
 
 	DataResult<List<User>> getAll();
 }
